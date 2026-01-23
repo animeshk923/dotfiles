@@ -7,7 +7,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
+export PATH=$PATH:/usr/local/go/bin
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -125,8 +125,34 @@ export NVM_DIR="$HOME/.nvm"
 ##### personal workflow #####
 project() {
   project_name=$1
-  mkdir "$HOME/web-dev-projects/$project_name" &&
-  cd "$HOME/web-dev-projects/$project_name" &&
+  mkdir "$HOME/web-dev/$project_name" &&
+  cd "$HOME/web-dev/$project_name" &&
   touch index.html style.css index.js &&
   code .
 }
+
+react-app() {
+  cd "$HOME/web-dev/"
+  app_name=$1
+  npm create vite@latest "$app_name" -- --template react
+  cd "$app_name"
+  npm install
+  code .
+  git init
+}
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export DATABASE_PASSWORD="626217"
+
+# pnpm
+export PNPM_HOME="/home/animesh/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH

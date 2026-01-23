@@ -1,0 +1,19 @@
+{
+  "New Functional Component": {
+    "prefix": "rfce",
+    "body": [
+      "export type ${TM_FILENAME_BASE}Props = {",
+      "\t$1",
+      "};",
+      "",
+      "export default function ${TM_FILENAME_BASE}({ $2 }: ${TM_FILENAME_BASE}Props) {",
+      "\treturn (",
+      "\t\t<>",
+      "\t\t\t$0",
+      "\t\t</>",
+      "\t);",
+      "}",
+    ],
+    "description": "Create a new functional TypeScript React component with typed props based on file name",
+  },
+}
