@@ -13,6 +13,12 @@
       "milliseconds": 400,
     },
   },
+  "agent_servers": {
+    "OpenCode": {
+      "command": "opencode",
+      "args": ["acp"]
+    }
+  },
 
   "agent": {
     "profiles": {
@@ -56,7 +62,7 @@
     "default_profile": "write",
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "oswe-vscode-prime",
+      "model": "gemini-3-flash-preview",
     },
     "always_allow_tool_actions": true,
     "default_model": {
